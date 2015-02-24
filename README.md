@@ -18,10 +18,10 @@ Currently takes _4_ standard date formats as first arguments and desired formats
 * __'07 September, 1998'__ - (day/month/year format) 
 
 ###### ex. second args
-* __dashed__ - ex. output: 09-07-1998
-* __slashed__ - ex. output: 09/07/1998
-* __mdy__ - ex. output: September 07, 1998
-* __dmy__ - ex. output: 07 September, 1998
+* __'dashed'__ - ex. output: 09-07-1998
+* __'slashed'__ - ex. output: 09/07/1998
+* __'mdy'__ - ex. output: September 07, 1998
+* __'dmy'__ - ex. output: 07 September, 1998
 
 
 ##### in node.js
