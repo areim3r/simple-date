@@ -7,18 +7,17 @@ Takes 2 arguments, the string date you have and the desired format you want (in 
 ex. 
 ```javascript
 var formattedDate = simpleDate.format(your_date, desired_format);
-console.log(formattedDate);
 ```
 ### arguments
 Currently takes _4_ standard date formats as first arguments and desired formats as second arguments:
 
-###### first args
-* 09-07-1998
-* 09/07/1998
-* September 07, 1998
-* 07 September, 1998
+###### ex. first args
+* __'09-07-1998'__ - (dashed format)
+* __'09/07/1998'__ - (slashed format)
+* __'September 07, 1998'__ - (month/day/year format) 
+* __'07 September, 1998'__ - (day/month/year format) 
 
-###### second args
+###### ex. second args
 * __dashed__ - ex. output: 09-07-1998
 * __slashed__ - ex. output: 09/07/1998
 * __mdy__ - ex. output: September 07, 1998
