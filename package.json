@@ -1,6 +1,6 @@
 {
   "name": "simple-date",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "converts dates so you don't have to.",
   "main": "simple-date.js",
   "scripts": {
