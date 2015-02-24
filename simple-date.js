@@ -55,7 +55,7 @@ function simpleDate (date, format) {   ////////////////    return formatted date
         case 'dashed':
             
             if(dash){
-                return console.error(sameErr);
+                return errHandler('', sameErr);
                 
             }else if(slash){
                 newDate = date.replace(/\//g, '-');
@@ -64,14 +64,14 @@ function simpleDate (date, format) {   ////////////////    return formatted date
                 newDate = formatDate(date, 'dashed');
                 return newDate;
             }else{
-                return console.error(dateFormatErr); 
+                return errHandler(date, dateFormatErr); 
             }
             break;
             
         case 'slashed':
             
             if(slash){
-                return console.error(sameErr);
+                return errHandler('', sameErr);
             }else if(dash){
                 newDate = date.replace(/-/g, '/');
                 return newDate;
@@ -79,7 +79,7 @@ function simpleDate (date, format) {   ////////////////    return formatted date
                 newDate = formatDate(date, 'slashed');
                 return newDate;
             }else{
-                return console.error(formatErr);    
+                return errHandler(date, dateFormatErr);    
             }
             break;
             
@@ -92,9 +92,9 @@ function simpleDate (date, format) {   ////////////////    return formatted date
                 newDate = formatDate(date, 'mdy');
                 return newDate;
             }else if(mdy){
-                return console.error(sameErr);
+                return errHandler('', sameErr);
             }else{
-                return console.error(formatErr);
+                return errHandler(date, dateFormatErr);
             }
             break;
             
@@ -107,21 +107,35 @@ function simpleDate (date, format) {   ////////////////    return formatted date
                 newDate = formatDate(date, 'dmy');
                 return newDate;
             }else if(dmy){
-                return console.error(sameErr);
+                return errHandler('', sameErr);
             }else{
-                return console.error(formatErr);
+                return errHandler(date, dateFormatErr);
             }
             break;
             
         default:
-            return console.error(formatArgErr);
+            return errHandler(format, formatArgErr);
+    }
+}
+
+function errHandler(input, err){
+    if(err == sameErr){
+        console.error('Self-Reference Error: '+ sameErr);
+    }
+    if(err == formatArgErr){
+        console.error('Format Error: "'+ input + '", is not a supported format argument!');
+        console.error(err);
+    }
+    if(err == dateFormatErr){
+        console.error('Format Error: "'+ input +'", is not a supported date input format!');
+        console.error(err);
     }
 }
 
 // error messages
-var dateFormatErr = 'Format Error: try [[ XX-XX-XXXX ]], [[ XX/XX/XXXX ]], [[ January 01, 2015 ]], or [[ 01 January, 2015 ]]';
+var dateFormatErr = 'try [[ XX-XX-XXXX ]], [[ XX/XX/XXXX ]], [[ January 01, 2015 ]], or [[ 01 January, 2015 ]]';
 var formatArgErr = 'Bad format argument! Try: slashed, dashed, mdy, & dmy';
-var sameErr = 'Please specify an alternate date format!';
+var sameErr = 'please specify an alternate date format!';
 
 //  4 formats (top to bottom): dash, slash, month-day-year, and day-month-year
 var dashRegex = /^[0-9]{2}-[0-9]{2}-[0-9]{4}/,
