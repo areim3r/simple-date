@@ -1,0 +1,24 @@
+{
+  "name": "simple-date",
+  "version": "0.0.9",
+  "description": "Converts dates to other common date formats.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/areim3r/simple-date.git"
+  },
+  "keywords": [
+    "simple",
+    "node",
+    "date"
+  ],
+  "author": "adrian reimer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/areim3r/simple-date/issues"
+  },
+  "homepage": "https://github.com/areim3r/simple-date"
+}
