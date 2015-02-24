@@ -1,5 +1,5 @@
 # simple-date
-Converts dates so you don't have to.
+Simple, versatile Javascript date formatter that can be run in the browser or required as a module in nodejs. Takes a given date string and converts it to desired date format.
 
 ### install
 npm install simple-date
