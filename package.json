@@ -2,7 +2,7 @@
   "name": "simple-date",
   "version": "0.0.9",
   "description": "Converts dates to other common date formats.",
-  "main": "index.js",
+  "main": "simple-date.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,10 +15,19 @@
     "node",
     "date"
   ],
-  "author": "adrian reimer",
+  "author": {
+    "name": "adrian reimer"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/areim3r/simple-date/issues"
   },
-  "homepage": "https://github.com/areim3r/simple-date"
+  "homepage": "https://github.com/areim3r/simple-date",
+  "gitHead": "08d3c8cf0b919f05969cd2efd55ce70378ef66b2",
+  "readme": "# simple-date\nConverts dates to other common date format types\n",
+  "readmeFilename": "README.md",
+  "_id": "simple-date@0.0.9",
+  "_shasum": "20a145d11578dfa244e2798de5db1a6602a520fd",
+  "_from": "../../../../../../var/folders/l8/68hlp7rd3dxc2g94q7tz0z_m0000gp/T/npm-952-82a2ddb7/git-cache-7734baddc6b4/08d3c8cf0b919f05969cd2efd55ce70378ef66b2",
+  "_resolved": "git://github.com/areim3r/simple-date.git#08d3c8cf0b919f05969cd2efd55ce70378ef66b2"
 }

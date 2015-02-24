@@ -44,7 +44,7 @@ function formatDate(date, format){  //////////////////////  format dates
                 
 }
 
-function convert (date, format) {   ////////////////    return formatted dates
+function simpleDate (date, format) {   ////////////////    return formatted dates
     
     var dash = dashRegex.test(date),
         slash = slashRegex.test(date),
@@ -131,4 +131,4 @@ var dashRegex = /^[0-9]{2}-[0-9]{2}-[0-9]{4}/,
     mdyRegex = /^[A-z]+\s+[0-9]{2},+\s+[0-9]{4}/,
     dmyRegex = /^[0-9]{2}\s[A-z]+,\s[0-9]{4}/;
 
-module.exports = { convDate: convert }
+module.exports = { format: simpleDate }
