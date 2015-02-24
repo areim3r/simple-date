@@ -119,16 +119,17 @@ function simpleDate (date, format) {   ////////////////    return formatted date
 }
 
 function errHandler(input, err){
-    if(err == sameErr){
-        console.error('Self-Reference Error: '+ sameErr);
-    }
     if(err == formatArgErr){
         console.error('Format Error: "'+ input + '", is not a supported format argument!');
         console.error(err);
-    }
-    if(err == dateFormatErr){
+        
+    }else if(err == dateFormatErr){
         console.error('Format Error: "'+ input +'", is not a supported date input format!');
         console.error(err);
+        
+    }else if(err == sameErr){
+        console.error('Self-Reference Error: '+ err);
+        
     }
 }
 
