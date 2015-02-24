@@ -1,6 +1,9 @@
 # simple-date
 Converts dates so you don't have to.
 
+### install
+npm install simple-date
+
 ### format
 Takes 2 arguments, the string date you have and the desired format you want (in that order).
 
