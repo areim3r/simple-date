@@ -96,7 +96,6 @@ function simpleDate (date, format) {   ////////////////    return formatted date
             }else{
                 return console.error(formatErr);
             }
-            newDate = new Date(date);
             break;
             
         case 'dmy':
@@ -112,7 +111,6 @@ function simpleDate (date, format) {   ////////////////    return formatted date
             }else{
                 return console.error(formatErr);
             }
-            newDate = new Date(date);
             break;
             
         default:
