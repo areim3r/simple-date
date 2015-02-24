@@ -32,6 +32,7 @@ Currently takes _4_ standard date formats as first arguments and desired formats
 ```javascript
 var simpleDate = require('simple-date');
 var newDate = simpleDate.format(your_date, 'dashed');
+console.log(newDate);   // logs your_date in dashed format: XX-XX-XXXX
 ```
 
 ##### in browser
@@ -41,6 +42,6 @@ var newDate = simpleDate.format(your_date, 'dashed');
 <script>
     var current_format = '09/07/1998';
     var new_format = simpleDate(current_format, 'mdy');
-    console.log(new_format);
+    console.log(new_format);    // logs: September 07, 1998
 </script>
 ```
