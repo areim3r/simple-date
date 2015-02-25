@@ -19,7 +19,9 @@ Currently takes _5_ standard date formats as first arguments and 4 desired forma
 * __'09/07/1998'__ - (slashed format)
 * __'September 07, 1998'__ - (month/day/year format) 
 * __'07 September, 1998'__ - (day/month/year format)
+
 or
+
 * __date object__
 
 ###### ex. second args
