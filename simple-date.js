@@ -2,12 +2,18 @@
 var month, day, year, newDate;
 var months = ['\(ø_ø)/','January','February','March','April','May','June','July','August','September','October','November','December'];
 
-function formatDate(date, format){  //////////////////////  format dates
+function formatDate(date, format, isObj){  //////////////////////  format dates
     
-    var fullDate = new Date(date),
-        dateMonth = fullDate.getMonth()+1,
-        dateDay = fullDate.getDate(),
-        dateYear = fullDate.getFullYear();
+    if(isObj){
+        var dateMonth = date.getMonth()+1,
+        dateDay = date.getDate(),
+        dateYear = date.getFullYear();  
+    }else{
+        var inputDate = new Date(date),
+            dateMonth = inputDate.getMonth()+1,
+            dateDay = inputDate.getDate(),
+            dateYear = inputDate.getFullYear();
+    }
     
     if(dateDay < 10){
         dateDay = '0'+dateDay;   
@@ -39,7 +45,7 @@ function formatDate(date, format){  //////////////////////  format dates
             return newDate;
             break;
         default:
-            return console.error('error formatting date');
+            return errHandler(format, formatArgErr);
     }
                 
 }
@@ -51,12 +57,23 @@ function simpleDate (date, format) {   ////////////////    return formatted date
         mdy = mdyRegex.test(date),
         dmy = dmyRegex.test(date);
     
+    if((date instanceof Date)){
+        
+        try{
+            newDate = formatDate(date, format, true);
+            return newDate;
+        }catch(err){
+            return errHandler(format, formatArgErr);
+        }
+        
+    }
+    
     switch(format){
+            
         case 'dashed':
             
             if(dash){
                 return errHandler('', sameErr);
-                
             }else if(slash){
                 newDate = date.replace(/\//g, '-');
                 return newDate;
@@ -115,28 +132,34 @@ function simpleDate (date, format) {   ////////////////    return formatted date
             
         default:
             return errHandler(format, formatArgErr);
+            
     }
+    
 }
 
 function errHandler(input, err){
+    
     if(err == formatArgErr){
-        console.error('Format Error: "'+ input + '", is not a supported format argument!');
-        console.error(err);
-        
+        console.error(formatArgErr.err(input));
+        console.info(formatArgErr.help);
+        return;
     }else if(err == dateFormatErr){
-        console.error('Format Error: "'+ input +'", is not a supported date input format!');
-        console.error(err);
-        
+        console.error(dateFormatErr.err(input));
+        console.info(dateFormatErr.help);
+        return;
     }else if(err == sameErr){
-        console.error('Self-Reference Error: '+ err);
-        
+        console.error(sameErr.err);
+        console.info(sameErr.help);
+        return;
     }
+    
 }
 
-// error messages
-var dateFormatErr = 'try [[ XX-XX-XXXX ]], [[ XX/XX/XXXX ]], [[ January 01, 2015 ]], or [[ 01 January, 2015 ]]';
-var formatArgErr = 'Bad format argument! Try: slashed, dashed, mdy, & dmy';
-var sameErr = 'please specify an alternate date format!';
+var dateFormatErr = { err: function(input){return 'ERROR: 1st-Argument __'+input+'__ is not a date'} , help: 'HELP: try [[ XX-XX-XXXX ]], [[ XX/XX/XXXX ]], [[ January 01, 2015 ]], or [[ 01 January, 2015 ]]'}
+
+var formatArgErr = { err: function(input){return 'ERROR: 2nd-Argument __'+input+'__ is an illegal format'} , help: 'HELP: try slashed, dashed, mdy, & dmy'}
+
+var sameErr = { err: 'ERROR: 1st/2nd-Arguments are the same format' , help: 'HELP: change the output format, it should not match the format of the date passed' }
 
 //  4 formats (top to bottom): dash, slash, month-day-year, and day-month-year
 var dashRegex = /^[0-9]{2}-[0-9]{2}-[0-9]{4}/,
