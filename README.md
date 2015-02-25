@@ -1,5 +1,5 @@
 # simple-date
-Simple, versatile Javascript date formatter that can be run in the browser or required as a module in [nodejs](https://www.npmjs.com/package/simple-date "simple-date npm package"). Takes a given date string and converts it to desired date format.
+Simple, versatile Javascript date formatter that can be run in the browser or required as a module in [nodejs](https://www.npmjs.com/package/simple-date "simple-date npm package"). Takes a given date string / object and converts it to desired date format.
 
 ### install
 npm install simple-date
@@ -37,7 +37,7 @@ or
 var simpleDate = require('simple-date');
 var current_date = new Date();
 var formattedDate = simpleDate.format(current_date, 'dashed');
-console.log(newDate);   // logs current_date in dashed format: XX-XX-XXXX
+console.log(formattedDate);   // logs current_date in dashed format: XX-XX-XXXX
 ```
 
 ##### in browser
